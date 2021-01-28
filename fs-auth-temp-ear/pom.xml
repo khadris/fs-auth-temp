@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>fs-auth-temp</artifactId>
+        <groupId>com.firstdata.fs</groupId>
+        <version>${fs-auth-temp-version}</version>
+    </parent>
+
+    <artifactId>fs-auth-temp-ear</artifactId>
+    <name>Auth Temp Ear</name>
+    <packaging>ear</packaging>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <defaultJavaBundleDir>lib/</defaultJavaBundleDir>
+                    <version>6</version>
+                    <filtering>true</filtering>
+                    <modules>
+                        <ejbModule>
+                            <groupId>com.firstdata.fs</groupId>
+                            <artifactId>fs-auth-temp-service</artifactId>
+                        </ejbModule>
+
+                        <ejbModule>
+                            <groupId>com.firstdata.fs</groupId>
+                            <artifactId>fs-auth-temp-startup</artifactId>
+                        </ejbModule>
+
+                        <webModule>
+                            <groupId>com.firstdata.fs</groupId>
+                            <artifactId>fs-rest</artifactId>
+                            <contextRoot>/api</contextRoot>
+                            <unpack>false</unpack>
+                        </webModule>
+
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.firstdata.fs</groupId>
+            <artifactId>fs-fdinet-util</artifactId>
+            <version>${fs-core.version}</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>com.firstdata.fs</groupId>
+            <artifactId>core-services</artifactId>
+            <version>${fs-core.version}</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>com.firstdata.fs</groupId>
+            <artifactId>fs-auth-temp-service</artifactId>
+            <version>${project.parent.version}</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>com.firstdata.fs</groupId>
+            <artifactId>fs-auth-temp-startup</artifactId>
+            <version>${project.parent.version}</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>com.firstdata.fs</groupId>
+            <artifactId>fs-rest</artifactId>
+            <version>${fs-core.version}</version>
+            <type>war</type>
+        </dependency>
+        
+    </dependencies>
+</project>

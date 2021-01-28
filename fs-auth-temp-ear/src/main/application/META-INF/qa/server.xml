@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><server description="CICS Liberty profile sample configuration">
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>jaxrs-2.0</feature>
+        <feature>ejblite-3.2</feature>
+    </featureManager>
+
+    <enterpriseApplication id="fs-auth-temp" location="fs-auth-temp-ear.ear" name="fs-auth-temp"/>
+
+    <webContainer skipMetaInfResourcesProcessing="true" deferServletLoad="false"/>
+    <cicsts_jta integration="false"/>
+    
+    <!-- Default HTTP End Point -->
+    <httpEndpoint host="hostname.1dc.com" httpPort="9080" id="defaultHttpEndpoint"/>
+    <httpDispatcher enableWelcomePage="false" appOrContextRootMissingMessage="Request URI is not valid! Please check and try again!" />
+</server>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="logDir">${sys:LOG_DIR:-/usr/share/logs}</Property>
+        <Property name="maxAge">${sys:MAX_AGE:-45D}</Property>
+        <Property name="maxFileCount">${sys:MAX_FILE_COUNT:-100}</Property>
+        <Property name="maxFileSize">${sys:MAX_FILE_SIZE:-100}</Property>
+        <Property name="maxDebugFileCount">${sys:MAX_DEBUG_FILE_COUNT:-10}</Property>
+        <Property name="rollingTimeInterval">${sys:ROLLING_TIME_INTERVAL:-24}</Property>
+        <Property name="logLevel">${sys:LOG_LEVEL:-INFO}</Property>
+        <Property name="appName">auth-temp</Property>
+    </Properties>
+
+    <Appenders>
+
+        <RollingFile name="appMessagesAppender" fileName="${logDir}/${appName}-app.log"
+                     filePattern="${logDir}/${appName}-app-%d{yyyy-MM-dd-HH}-%i.log.gz">
+            <PatternLayout pattern="time=%d{yyyy-MM-dd'T'HH:mm s.SSSZ}, level=%p, thread=%t,
+            	caller=%c{1}, txid=%X{tx}, message=%enc{%m}{CRLF}%n"/>
+
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="${rollingTimeInterval}"/>
+                <SizeBasedTriggeringPolicy size="${maxFileSize} MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="${maxFileCount}">
+                <Delete basePath="${logDir}" maxDepth="${maxFileCount}">
+                    <IfFileName glob="$${appName}-app.*.log.gz">
+                        <IfLastModified age="${maxAge}">
+                            <IfAccumulatedFileSize exceeds="${maxFileSize} MB"/>
+                        </IfLastModified>
+                    </IfFileName>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+        <Root level="${logLevel}">
+            <AppenderRef ref="appMessagesAppender"/>
+        </Root>
+    </Loggers>
+
+
+</Configuration>

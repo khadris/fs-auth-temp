@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.firstdata.fs</groupId>
+        <artifactId>fs-assembly</artifactId>
+        <version>3.1004</version>
+    </parent>
+
+    <artifactId>fs-auth-temp</artifactId>
+    <version>${fs-auth-temp-version}</version>
+    <packaging>pom</packaging>
+    <name>Authorization Link</name>
+    <description>Authorization Link Web Services</description>
+
+    <properties>
+        <fs-auth-temp-version>21.4-SNAPSHOT</fs-auth-temp-version>
+        <log4j.version>2.13.3</log4j.version>
+    </properties>
+
+    <scm>
+        <developerConnection>scm:git:ssh://git@escmstash.1dc.com:7999/auth/fs-auth-temp.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <modules>
+        <module>fs-auth-temp-model</module>
+        <module>fs-auth-temp-service</module>
+        <module>fs-auth-temp-startup</module>
+        <module>fs-auth-temp-ear</module>
+    </modules>
+
+</project>

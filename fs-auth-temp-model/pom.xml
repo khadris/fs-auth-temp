@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>fs-auth-temp</artifactId>
+        <groupId>com.firstdata.fs</groupId>
+        <version>${fs-auth-temp-version}</version>
+    </parent>
+
+    <artifactId>fs-auth-temp-model</artifactId>
+    <name>Auth Temp Model</name>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.firstdata.fs</groupId>
+            <artifactId>fs-model</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.firstdata.fs</groupId>
+            <artifactId>fs-annotation-mapper</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.5.4</version>
+        </dependency>
+    </dependencies>
+</project>

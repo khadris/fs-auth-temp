@@ -1,7 +1,7 @@
 # AUTH TEMP PROEJCT
 It is a temporary project which gives the ejb project structure with the NSA framework.
 
-# Modules
+### Modules
  It must have at least 4 modules
  - Ear
  -- Keep the environment specific artificates like app & server config files.
@@ -10,7 +10,7 @@ It is a temporary project which gives the ejb project structure with the NSA fra
  - Service -> The business implementation should be provided here
  - Startup -> Registration for the exposed API services
 
-# Server files
+### Server files
 Along with the app config & server config files, the below files are expected in the server location
 * ldap.conf
 * pbe.conf
@@ -19,6 +19,18 @@ Along with the app config & server config files, the below files are expected in
 
 Added these sample files in the ear module as a reference.
 
-
-Sample Request Details:
+### Sample Request Details:
 Once the ear is deployed on the server, invoke the request from the post man with the below details
+
+Request Type: POST
+URL: http://<HOST>:<PORT>/api/fs/temp/v1/myservice
+
+Request Headers:
+Content-Type:application/json
+ClientName:test
+
+Payload:
+{
+    "inputField" : "MY FIRST REQUEST"
+}
+

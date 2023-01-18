@@ -2,7 +2,7 @@
 
     <!-- Enable features -->
     <featureManager>
-        <feature>jaxrs-2.0</feature>
+        <feature>jaxrs-2.1</feature>
         <feature>ejblite-3.2</feature>
     </featureManager>
 
@@ -12,6 +12,6 @@
     <cicsts_jta integration="false"/>
     
     <!-- Default HTTP End Point -->
-    <httpEndpoint host="hostname.1dc.com" httpPort="9080" id="defaultHttpEndpoint"/>
+    <httpEndpoint host="d000.fdedloans.com" httpPort="9443" id="defaultHttpEndpoint"/>
     <httpDispatcher enableWelcomePage="false" appOrContextRootMissingMessage="Request URI is not valid! Please check and try again!" />
 </server>

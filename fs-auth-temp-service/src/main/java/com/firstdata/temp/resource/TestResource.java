@@ -21,21 +21,6 @@ public class TestResource extends AbstractService<TestRequest, TestResponse> {
     @EJB
     private TestService testService;
 
-    @Override
-    public Class<TestResponse> getResponseClass() {
-        return TestResponse.class;
-    }
-
-    @Override
-    public Class<TestRequest> getRequestClass() {
-        return TestRequest.class;
-    }
-
-    @Override
-    public String getName() {
-        return "myservice";
-    }
-
     @POST
     @Path("/fs/temp/v1/myservice")
     @Produces(MediaType.APPLICATION_JSON)

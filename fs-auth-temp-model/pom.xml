@@ -6,7 +6,7 @@
     <parent>
         <artifactId>fs-auth-temp</artifactId>
         <groupId>com.firstdata.fs</groupId>
-        <version>${fs-auth-temp-version}</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>fs-auth-temp-model</artifactId>
